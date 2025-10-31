@@ -1,7 +1,7 @@
 import asyncio
 import re
 from functools import wraps
-from typing import List, Optional, Callable, Any
+from typing import Any, Callable, List, Optional
 
 import pytest
 from flask import jsonify, request
@@ -455,7 +455,7 @@ class TestPathUnannotatedParameter:
 class TestPathIntParameterAndInjector:
     def test_correct_param_passes(self, client):
         id_ = 12
-        expected_response = {"id": id_, 'injectable': 'injected'}
+        expected_response = {"id": id_, "injectable": "injected"}
         response = client.get(f"/path_param/{id_}/")
         assert_matches(expected_response, response.json)
 
